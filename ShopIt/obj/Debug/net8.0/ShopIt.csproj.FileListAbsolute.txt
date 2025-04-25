@@ -83,3 +83,20 @@ C:\Users\HP\Desktop\C# Codes\ShopIt\ShopIt\obj\Debug\net8.0\refint\ShopIt.dll
 C:\Users\HP\Desktop\C# Codes\ShopIt\ShopIt\obj\Debug\net8.0\ShopIt.pdb
 C:\Users\HP\Desktop\C# Codes\ShopIt\ShopIt\obj\Debug\net8.0\ShopIt.genruntimeconfig.cache
 C:\Users\HP\Desktop\C# Codes\ShopIt\ShopIt\obj\Debug\net8.0\ref\ShopIt.dll
+C:\Users\ADMIN\source\repos\ShopIt\ShopIt\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\ADMIN\source\repos\ShopIt\ShopIt\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\ADMIN\source\repos\ShopIt\ShopIt\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\ADMIN\source\repos\ShopIt\ShopIt\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\ADMIN\source\repos\ShopIt\ShopIt\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\ADMIN\source\repos\ShopIt\ShopIt\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\ADMIN\source\repos\ShopIt\ShopIt\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\ADMIN\source\repos\ShopIt\ShopIt\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\ADMIN\source\repos\ShopIt\ShopIt\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\ADMIN\source\repos\ShopIt\ShopIt\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\ADMIN\source\repos\ShopIt\ShopIt\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\ADMIN\source\repos\ShopIt\ShopIt\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\ADMIN\source\repos\ShopIt\ShopIt\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\ADMIN\source\repos\ShopIt\ShopIt\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\ADMIN\source\repos\ShopIt\ShopIt\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\ADMIN\source\repos\ShopIt\ShopIt\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\ADMIN\source\repos\ShopIt\ShopIt\obj\Debug\net8.0\ShopIt.sourcelink.json

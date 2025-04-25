@@ -1,8 +1,14 @@
+using ShopIt.Data;
+using ShopIt.Interfaces;
+using ShopIt.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddScoped(typeof(IGenericRespository<>), (typeof(GenericRepository<>)));
+builder.Services.AddScoped<IProductService, ProductService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
