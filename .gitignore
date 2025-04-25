@@ -1,2 +1,8 @@
 .vs
 .git
+/bin
+/obj
+**/obj
+**/bin
+/.idea
+/deployAPI
