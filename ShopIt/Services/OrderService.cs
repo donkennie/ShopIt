@@ -1,6 +1,10 @@
-﻿using ShopIt.DTOs;
+﻿using Microsoft.EntityFrameworkCore;
+using ShopIt.Data;
+using ShopIt.DTOs;
 using ShopIt.Interfaces;
 using ShopIt.Models;
+using ShopIt.Models.Enums;
+using ShopIt.Models.ValueObject;
 
 namespace ShopIt.Services
 {
@@ -12,6 +16,7 @@ namespace ShopIt.Services
         private readonly IGenericRespository<Order> _orderRepository;
         private readonly IGenericRespository<CartItem> _cartItemRepository;
         private readonly IGenericRespository<DeliveryMethod> _deliveryMethodRepository;
+
 
         public OrderService(IGenericRespository<CustomerCart> customerCartRepository, IGenericRespository<Product> productRepository,
             IGenericRespository<OrderItem> orderItemRepository, IGenericRespository<Order> orderRepository,
@@ -63,7 +68,59 @@ namespace ShopIt.Services
 
             var subtotal = items.Sum(i => i.Price * i.Quantity);
 
+            var order = new Order
+            {
+                BuyerEmail = createOrderDTO.BuyerEmail,
+                OrderItems = items,
+                DeliveryMethod = deliveryMethod,
+                SubTotal = subtotal,
 
+                // I added the shipping address here. Confirm if its correct
+                ShippingAddress = new Address
+                {
+                    FirstName = createOrderDTO.Address.FirstName,
+                    LastName = createOrderDTO.Address.LastName,
+                    Street = createOrderDTO.Address.Street,
+                    City = createOrderDTO.Address.City,
+                    State = createOrderDTO.Address.State,
+                    ZipCode = createOrderDTO.Address.ZipCode
+                },
+                OrderDate = DateTime.UtcNow,
+                OrderStatus = OrderStatus.Pending
+            };
+
+            await _orderRepository.Create(order);
+
+            return order;
         }
+
+
+        public async Task<Order> GetOrderById(Guid orderId)
+        {
+            var order = await _orderRepository.Get(orderId);
+            if (order == null)
+            {
+                throw new Exception("Order not found");
+            }
+            return order;
+        }
+
+
+
+        // There is no userId in the order model so I am using email to get the orders.
+        // Or is it added with guid from base entity?
+        public async Task<IReadOnlyList<Order>> GetOrdersByEmail(string email)
+        {
+            var orders = await _orderRepository.GetAll();
+            var userOrders = orders.Where(o => o.BuyerEmail == email).ToList();
+
+            if (userOrders == null)
+            {
+                throw new Exception("No orders found for this email");
+            }
+
+            return userOrders;
+        }
+
     }
 }
