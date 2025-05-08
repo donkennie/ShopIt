@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ShopIt.DTOs;
 using ShopIt.Services;
@@ -32,6 +33,7 @@ namespace ShopIt.Controllers
         }
 
         [HttpPost("login")]
+        [Authorize]
         public async Task<IActionResult> Login(LoginDTO dto)
         {
             try
