@@ -38,8 +38,8 @@ namespace ShopIt.Controllers
         {
             try
             {
-                var token = await _loginService.LoginAsync(dto);
-                return Ok(new { token });
+                // var token = await _loginService.LoginAsync(dto);
+                return Ok();
             }
             catch (Exception ex)
             {

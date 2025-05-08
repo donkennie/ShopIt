@@ -2,7 +2,7 @@
 
 namespace ShopIt.DTOs
 {
-    public class LoginDTO
+    public record LoginDTO
     {
         [Required]
         public string Email { get; set; }
