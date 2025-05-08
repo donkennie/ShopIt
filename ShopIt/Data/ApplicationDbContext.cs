@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ShopIt.Models;
+using ShopIt.Models.ValueObject;
 
 namespace ShopIt.Data
 {
@@ -13,6 +14,9 @@ namespace ShopIt.Data
         public DbSet<DeliveryMethod> DeliveryMethods { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<ApplicationUser> Users { get; set; }
+
+        public DbSet<Address> Addresses { get; set; }
 
     }
 }
