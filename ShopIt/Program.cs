@@ -18,7 +18,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddScoped(typeof(IGenericRespository<>), (typeof(GenericRepository<>)));
 builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped<RegistrationService>();
+builder.Services.AddScoped<AuthService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -7,15 +7,15 @@ namespace ShopIt.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class RegistrationController : ControllerBase
+    public class AuthController : ControllerBase
     {
-        private readonly RegistrationService _registrationService;
-        private readonly LoginService _loginService;
+        private readonly AuthService _authService;
+        
 
-        public RegistrationController(RegistrationService registrationService, LoginService loginService)
+        public AuthController(AuthService authService)
         {
-            _registrationService = registrationService;
-            _loginService = loginService;
+            _authService = authService;
+           
         }
 
         [HttpPost("register")]
@@ -23,7 +23,7 @@ namespace ShopIt.Controllers
         {
             try
             {
-                var message = await _registrationService.RegisterAsync(dto);
+                var message = await _authService.RegisterAsync(dto);
                 return Ok(new { message });
             }
             catch (Exception ex)
@@ -38,7 +38,6 @@ namespace ShopIt.Controllers
         {
             try
             {
-                // var token = await _loginService.LoginAsync(dto);
                 return Ok();
             }
             catch (Exception ex)
