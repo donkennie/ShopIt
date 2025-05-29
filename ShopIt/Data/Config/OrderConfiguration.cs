@@ -15,6 +15,22 @@ namespace ShopIt.Data.Config
             builder.Property(p => p.BuyerEmail).IsRequired();
             builder.Property(p => p.CreatedAt).IsRequired();
             builder.Property(p => p.DeliveryMethod).IsRequired();
+            builder.Property(p => p.ShippingAddress);
+        }
+    }
+
+    public static class OrderConfig
+    {
+        public static void Configure(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Order>().OwnsOne(s => s.ShippingAddress, a =>
+            {
+                a.Property(p => p.Street).HasMaxLength(50);
+                a.Property(p => p.City).HasMaxLength(100);
+                a.Property(p => p.State).HasMaxLength(15);
+                a.Property(p => p.ZipCode).HasMaxLength(10);
+                a.Property(p => p.Country).HasMaxLength(20);
+            });
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using ShopIt.Interfaces;
+﻿using ShopIt.DTOs;
+using ShopIt.Interfaces;
 using ShopIt.Models;
 
 namespace ShopIt.Services
@@ -11,8 +12,17 @@ namespace ShopIt.Services
             _productRepository = productRepository;
         }
 
-        public async Task<Product> Create(Product product)
+        public async Task<Product> Create(ProductDTO productDTO)
         {
+            var product = new Product
+            {
+                Name = productDTO.Name,
+                Description = productDTO.Description,
+                Price = productDTO.Price,
+                Brand = productDTO.Brand,
+                PictureURL = productDTO.PictureURL
+            };
+
             return await _productRepository.Create(product);
         }
 

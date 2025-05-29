@@ -70,12 +70,11 @@ namespace ShopIt.Services
 
             var order = new Order
             {
-                BuyerEmail = createOrderDTO.BuyerEmail,
+                BuyerEmail = createOrderDTO.Email,
                 OrderItems = items,
                 DeliveryMethod = deliveryMethod,
                 SubTotal = subtotal,
 
-                // I added the shipping address here. Confirm if its correct
                 ShippingAddress = new Address
                 {
                     FirstName = createOrderDTO.Address.FirstName,
@@ -94,21 +93,16 @@ namespace ShopIt.Services
             return order;
         }
 
-
-        public async Task<Order> GetOrderById(Guid orderId)
+        public async Task<IReadOnlyList<Order>> GetOrdersById(Guid orderId)
         {
-            var order = await _orderRepository.Get(orderId);
-            if (order == null)
+            var orders = await _orderRepository.GetAll();
+            var userOrders = orders.Where(o => o.Id == orderId).ToList();
+            if (userOrders == null)
             {
-                throw new Exception("Order not found");
+                throw new Exception("No orders found for this ID");
             }
-            return order;
+            return userOrders;
         }
-
-
-
-        // There is no userId in the order model so I am using email to get the orders.
-        // Or is it added with guid from base entity?
         public async Task<IReadOnlyList<Order>> GetOrdersByEmail(string email)
         {
             var orders = await _orderRepository.GetAll();

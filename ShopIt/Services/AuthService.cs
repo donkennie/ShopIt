@@ -9,12 +9,12 @@ using System.Text;
 
 namespace ShopIt.Services
 {
-    public class RegistrationService
+    public class AuthService
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IConfiguration _configuration;
 
-        public RegistrationService(UserManager<ApplicationUser> userManager, IConfiguration configuration)
+        public AuthService(UserManager<ApplicationUser> userManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _configuration = configuration;
@@ -25,7 +25,7 @@ namespace ShopIt.Services
             var checkUser = await _userManager.FindByEmailAsync(registerDTO.Email);
             if (checkUser != null)
                 throw new Exception("Email already in use.");
-            //if (_dbContext.Set<ApplicationUser>().Any(u => u.Email == registerDTO.Email))
+           
 
             var user = new ApplicationUser
             {
@@ -48,7 +48,7 @@ namespace ShopIt.Services
         {
             var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
             if (user is null)
-                throw new Exception("Eamil not found");
+                throw new Exception("Email not found");
 
             var checkPassword = await _userManager.CheckPasswordAsync(user, dto.Password);
             if (!checkPassword)

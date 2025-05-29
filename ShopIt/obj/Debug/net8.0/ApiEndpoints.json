@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "ShopIt.Controllers.RegistrationController",
+    "ContainingType": "ShopIt.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "api/Registration/login",
+    "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -16,9 +16,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ShopIt.Controllers.RegistrationController",
+    "ContainingType": "ShopIt.Controllers.AuthController",
     "Method": "Register",
-    "RelativePath": "api/Registration/register",
+    "RelativePath": "api/Auth/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -27,6 +27,213 @@
         "Name": "dto",
         "Type": "ShopIt.DTOs.RegisterDTO",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShopIt.Controllers.OrderController",
+    "Method": "CreateOrder",
+    "RelativePath": "createOrder",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DeliveryMethodId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Address.FirstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Address.LastName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Address.Street",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Address.City",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Address.State",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Address.Country",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Address.ZipCode",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "CustomerCartId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShopIt.Controllers.ProductController",
+    "Method": "CreateProduct",
+    "RelativePath": "createProduct",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Price",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "PictureURL",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Brand",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShopIt.Controllers.ProductController",
+    "Method": "DeleteProduct",
+    "RelativePath": "deleteProduct",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShopIt.Controllers.ProductController",
+    "Method": "GetAllProducts",
+    "RelativePath": "getAllProducts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShopIt.Controllers.OrderController",
+    "Method": "GetOrdersByEmail",
+    "RelativePath": "getOrderByEmail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShopIt.Controllers.OrderController",
+    "Method": "GetOrdersById",
+    "RelativePath": "getOrderById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShopIt.Controllers.ProductController",
+    "Method": "GetProductById",
+    "RelativePath": "getProductById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShopIt.Controllers.ProductController",
+    "Method": "UpdateProduct",
+    "RelativePath": "updateProduct",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Price",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "PictureURL",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Brand",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
