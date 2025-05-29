@@ -48,7 +48,7 @@ namespace ShopIt.Services
         {
             var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
             if (user is null)
-                throw new Exception("Eamil not found");
+                throw new Exception("Email not found");
 
             var checkPassword = await _userManager.CheckPasswordAsync(user, dto.Password);
             if (!checkPassword)

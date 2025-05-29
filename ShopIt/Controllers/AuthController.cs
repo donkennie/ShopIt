@@ -33,12 +33,12 @@ namespace ShopIt.Controllers
         }
 
         [HttpPost("login")]
-        [Authorize]
         public async Task<IActionResult> Login(LoginDTO dto)
         {
             try
             {
-                return Ok();
+                var message = await _authService.LoginAsync(dto);
+                return Ok(new {message});
             }
             catch (Exception ex)
             {
